@@ -1,0 +1,5 @@
+" exclude vim temporary and swap files
+" from: https://stackoverflow.com/a/4824199
+*~
+*.swp
+*.swo
