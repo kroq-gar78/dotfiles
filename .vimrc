@@ -24,29 +24,33 @@ imap <silent> <End> <C-o>g<End>
 
 " declare plugins for vim-plug
 call plug#begin()
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'davidhalter/jedi-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'klen/python-mode'
-"Plug 'Shougo/neocomplete.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
-"Plug 'christoomey/vim-tmux-navigator'
-Plug 'fatih/vim-go'
-Plug 'Valloric/YouCompleteMe'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    "Plug 'davidhalter/jedi-vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'klen/python-mode'
+    "Plug 'Shougo/neocomplete.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'scrooloose/nerdcommenter'
+    "Plug 'christoomey/vim-tmux-navigator'
+    Plug 'fatih/vim-go'
 
-" markdown
-"Plug 'tangledhelix/vim-octopress'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'mattn/emmet-vim'
-"Plug 'tpope/vim-liquid'
-Plug 'greyblake/vim-preview'
-Plug 'altercation/vim-colors-solarized'
+    " YCM is a little picky with vim versions
+    if v:version >= 812
+        Plug 'Valloric/YouCompleteMe'
+    endif
 
-Plug 'chikamichi/mediawiki.vim'
-Plug 'tikhomirov/vim-glsl'
+    " markdown
+    "Plug 'tangledhelix/vim-octopress'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'mattn/emmet-vim'
+    "Plug 'tpope/vim-liquid'
+    Plug 'greyblake/vim-preview'
+    Plug 'altercation/vim-colors-solarized'
+
+    Plug 'chikamichi/mediawiki.vim'
+    Plug 'tikhomirov/vim-glsl'
 call plug#end()
 
 " for vimclojure: https://github.com/sattvik/lein-tarsier
