@@ -1,3 +1,9 @@
+" download vim-plug if missing, and install plugins
+if empty(glob("~/.vim/autoload/plug.vim"))
+  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * silent! PlugInstall
+endif
+
 let maplocalleader=","
 
 set number " line numbers
@@ -5,7 +11,7 @@ set number " line numbers
 " display excessive whitespace
 "set list listchars=tab: ,trail: , nbsp: 
 
-" naviagte 'display lines' instead of hard lines
+" navigate 'display lines' instead of hard lines
 " from: http://stackoverflow.com/a/8347066
 noremap <silent> <Up> gk
 imap <silent> <Up> <C-o>gk
@@ -16,57 +22,35 @@ imap <silent> <home> <C-o>g<home>
 noremap <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
-" for vundle: http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
-set nocompatible
-filetype off
-syntax off
-"filetype plugin indent on
+" declare plugins for vim-plug
+call plug#begin()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'klen/python-mode'
+"Plug 'Shougo/neocomplete.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'christoomey/vim-tmux-navigator'
+Plug 'fatih/vim-go'
+Plug 'Valloric/YouCompleteMe'
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+" markdown
+"Plug 'tangledhelix/vim-octopress'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'mattn/emmet-vim'
+"Plug 'tpope/vim-liquid'
+Plug 'greyblake/vim-preview'
+Plug 'altercation/vim-colors-solarized'
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'VundleVim/Vundle.vim'
-
-" plugins
-"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
-"Plugin 'Shougo/neocomplete.vim'
-Plugin 'tpope/vim-fugitive'
-"Plugin 'guns/vim-clojure-static'
-"Plugin 'tpope/vim-fireplace'
-"Plugin 'tpope/vim-classpath'
-"Plugin 'VimClojure'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
-
-" markdown/octopress
-"Plugin 'tangledhelix/vim-octopress'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'mattn/emmet-vim'
-"Plugin 'tpope/vim-liquid'
-Plugin 'greyblake/vim-preview'
-Plugin 'altercation/vim-colors-solarized'
-
-Plugin 'chikamichi/mediawiki.vim'
-Plugin 'tikhomirov/vim-glsl'
-call vundle#end()
-"Plugin 'tkztmk/vim-vala'
-"Plugin 'farfanoide/vim-kivy'
-"Plugin 'vim-latex/vim-latex'
+Plug 'chikamichi/mediawiki.vim'
+Plug 'tikhomirov/vim-glsl'
+call plug#end()
 
 " for vimclojure: https://github.com/sattvik/lein-tarsier
 " also from: http://regretful.ly/clojure/2012/10/28/my-vimclojure-cheatsheet/
-"syntax on
-"filetype plugin indent on
 let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = "/home/kroq-gar78/bin/ng"
 " Automatically determine indenting using fuzzy matching. e.g. the a line starting "(with-"
