@@ -35,8 +35,11 @@ call plug#begin()
     "Plug 'christoomey/vim-tmux-navigator'
     Plug 'fatih/vim-go'
 
-    " YCM is a little picky with vim versions
-    if v:version >= 812
+    " YCM is a little picky with vim versions.
+    " If we're on an old vim, use an old commit of YCM
+    if v:version < 801
+        Plug 'Valloric/YouCompleteMe' , { 'branch': 'legacy-vim' }
+    else " otherwise use master
         Plug 'Valloric/YouCompleteMe'
     endif
 
@@ -230,8 +233,6 @@ let g:vim_markdown_frontmatter=1
 "Needed for LaTeX-Suite (http://vim-latex.sourceforge.net/index.php?subject=faq&title=FAQ#faq-not-loaded-vim7)
 "let g:tex_flavor='latex'
 
-syntax on
-
 let g:airline_powerline_fonts = 1 " install airline symbols
 let g:airline_theme = "luna"
 let g:airline_solarized_bg = "dark"
@@ -240,8 +241,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 set laststatus=2 " always show airline
-
-filetype plugin indent on
 
 "set background=dark
 "colorscheme solarized
