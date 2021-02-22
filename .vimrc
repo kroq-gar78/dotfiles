@@ -28,7 +28,7 @@ call plug#begin()
     Plug 'vim-airline/vim-airline-themes'
     "Plug 'davidhalter/jedi-vim'
     Plug 'scrooloose/nerdtree'
-    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+    Plug 'python-mode/python-mode', { 'branch': 'develop' }
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'
     "Plug 'christoomey/vim-tmux-navigator'
