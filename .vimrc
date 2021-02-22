@@ -28,11 +28,11 @@ call plug#begin()
     Plug 'vim-airline/vim-airline-themes'
     "Plug 'davidhalter/jedi-vim'
     Plug 'scrooloose/nerdtree'
-    Plug 'klen/python-mode'
+    Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'
     "Plug 'christoomey/vim-tmux-navigator'
-    Plug 'fatih/vim-go'
+    Plug 'fatih/vim-go', { 'for': 'go' }
 
     " YCM is a little picky with vim versions.
     " If we're on an old vim, use an old commit of YCM
@@ -46,9 +46,9 @@ call plug#begin()
     "Plug 'tangledhelix/vim-octopress'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
-    Plug 'mattn/emmet-vim'
+    "Plug 'mattn/emmet-vim'
     "Plug 'tpope/vim-liquid'
-    Plug 'greyblake/vim-preview'
+    "Plug 'greyblake/vim-preview'
     Plug 'altercation/vim-colors-solarized'
 
     Plug 'chikamichi/mediawiki.vim'
@@ -132,9 +132,6 @@ set laststatus=2 " always show airline
 "set background=dark
 "colorscheme solarized
 
-"filetype plugin on
-"filetype indent on
-
 " Replace selected text with the _ buffer in visual mode
 " from http://stackoverflow.com/a/920139
 vmap r "_dP
@@ -156,13 +153,15 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 " LaTeX-specific stuff
 "set g:Tex_CompileRule_dvi='pdflatex -interaction=nonstopmode $*'
 
-" NERDTree macro
+" NERDTree
 command NERD NERDTreeToggle
+let NERDTreeIgnore=['\.pyc$']
 
 " go-vim
 let g:go_version_warning = 0
 
-" YouCompleteMe (ycm)
+" YouCompleteMe (YCM)
+let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 " TODO: change this and have a proper YCM config
 
