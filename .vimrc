@@ -168,3 +168,6 @@ let g:ycm_confirm_extra_conf = 0
 " recognize more python extensions (for codewars)
 au BufRead,BufNewFile *.py2 set filetype=python
 au BufRead,BufNewFile *.py3 set filetype=python
+
+" recognize custom SSH config file(s)
+au BufRead,BufNewFile */.ssh/config_hosts set filetype=sshconfig
