@@ -8,7 +8,7 @@ let maplocalleader=","
 
 set number " line numbers
 
-" display excessive whitespace
+" display excess whitespace
 "set list listchars=tab: ,trail: , nbsp: 
 
 " navigate 'display lines' instead of hard lines
@@ -29,6 +29,7 @@ call plug#begin()
     "Plug 'davidhalter/jedi-vim'
     Plug 'scrooloose/nerdtree'
     Plug 'python-mode/python-mode', { 'branch': 'develop' }
+    Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'
     "Plug 'christoomey/vim-tmux-navigator'
@@ -112,7 +113,8 @@ nmap <leader>l :set list!<CR>
 " automatically change window's cwd to file's dir
 "set autochdir
 
-set foldmethod=indent
+"set foldmethod=indent
+set foldcolumn=2
 
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
