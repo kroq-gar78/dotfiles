@@ -22,6 +22,8 @@ imap <silent> <home> <C-o>g<home>
 noremap <silent> <End> g<End>
 imap <silent> <End> <C-o>g<End>
 
+set tabstop=4
+
 " declare plugins for vim-plug
 call plug#begin()
     Plug 'vim-airline/vim-airline'
@@ -31,6 +33,7 @@ call plug#begin()
     Plug 'python-mode/python-mode', { 'branch': 'develop' }
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sleuth'
     Plug 'scrooloose/nerdcommenter'
     "Plug 'christoomey/vim-tmux-navigator'
     Plug 'fatih/vim-go', { 'for': 'go' }
