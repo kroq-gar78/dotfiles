@@ -152,6 +152,7 @@ set expandtab       " Expand TABs to spaces
 
 set autoindent
 
+" Smaller indents for HTML/JS
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2 expandtab
 
