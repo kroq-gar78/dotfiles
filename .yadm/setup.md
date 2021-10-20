@@ -14,6 +14,8 @@ Things I like installed on new machines:
  * xclip/xsel
  * geany
  * dstat/[Dool](https://github.com/scottchiefbaker/dool)
+ * chromium? as an alternative
+ * jq
 
 ## Python packages
 
