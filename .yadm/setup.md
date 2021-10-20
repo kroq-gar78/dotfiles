@@ -18,6 +18,7 @@ Things I like installed on new machines:
 ## Python packages
 
  * pip
+ * ipython
  * scipy, numpy
  * matplotlib
  * pandas
