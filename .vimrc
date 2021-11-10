@@ -24,6 +24,10 @@ imap <silent> <End> <C-o>g<End>
 
 set tabstop=4
 
+" Default to case insensitive search. Auto-detect case sensitive searches.
+set ignorecase
+set smartcase
+
 " declare plugins for vim-plug
 call plug#begin()
     Plug 'vim-airline/vim-airline'
