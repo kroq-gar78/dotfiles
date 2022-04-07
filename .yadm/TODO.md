@@ -21,6 +21,11 @@
  * Add [xkb-halfqwerty](https://github.com/kroq-gar78/xkb-halfqwerty) to `~/.config/xkb` somehow?
      * See here: https://askubuntu.com/questions/875163/is-it-possible-to-use-a-custom-keyboard-layout-without-sudo-access-if-so-how
  * vim: add visual feedback when creating a marker with 'm'?
+ * vim: print the JSON key path (https://github.com/mogelbrod/vim-jsonpath)
+ * ipython: import numpy & others by default
+
+## Bugs
+ * my vimrc doesn't like function return type annotations to be strings. This happens (in Hugging Face transformers) when a class's method has a return type of itself. Argument annotations are fine (roughly checked). (Maybe the bug only happens inside class methods?)
 
 ## Longer-term items
 
