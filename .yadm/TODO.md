@@ -11,16 +11,19 @@
  * bash aliases
      * ll, la
      * ackless/agless
+     * also add to zsh
  * set EDITOR=vim
  * change curl --> wget (in vimrc?) because some machines don't have it installed by default
- * tmux-resurrect: restore dstat (the command is actually "python[23]? dstat", not just "dstat")
+ * tmux-resurrect: restore specific programs
+     * restore dstat (the command is actually "python[23]? dstat", not just "dstat")
      * restore `iostat`
-     * restore vim tabs
+     * restore vim tabs. Might need to use vim-obsession, as mentioned in https://github.com/tmux-plugins/tmux-resurrect/issues/238
  * htop settings? (do I have any?)
  * Indicate if shell is inside `ncdu` or `ranger` session (via powerline?)
+     * `ncdu` does not by default expose a variable that marks that we're in a session. Maybe aliasing `ncdu` to `NCDU_SESSION=1 ncdu` would work?
  * Add [xkb-halfqwerty](https://github.com/kroq-gar78/xkb-halfqwerty) to `~/.config/xkb` somehow?
      * See here: https://askubuntu.com/questions/875163/is-it-possible-to-use-a-custom-keyboard-layout-without-sudo-access-if-so-how
- * vim: add visual feedback when creating a marker with 'm'?
+ * vim: add visual feedback when creating a marker with 'm'? might need to do within airline
  * vim: print the JSON key path (https://github.com/mogelbrod/vim-jsonpath)
  * ipython: import numpy & others by default
 
