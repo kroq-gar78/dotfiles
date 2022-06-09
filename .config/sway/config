@@ -18,7 +18,13 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+# Use sway-launcher-desktop instead b/c it supports .desktop files
+#for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+#set $menu "$term --app-id=launcher -e sway-launcher-desktop"
+
+set $menu "fuzzel --show-actions"
 
 ### Output configuration
 #
@@ -38,8 +44,8 @@ output "Dell Inc. DELL S2721DGF B41QT83" resolution 2560x1440@119.998Hz
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 30 'swaylock -f -c 000000' \
-         timeout 60 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -59,6 +65,8 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+# Automatically enable numlock (if the device has it)
+input * xkb_numlock enable
 
 # Don't change focus with the mouse (without clicking). Keeps the behavior of other DEs
 focus_follows_mouse no
@@ -201,6 +209,28 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Volume control
+# from: https://www.reddit.com/r/swaywm/comments/qei3oh/comment/hhtvsen/3
+#bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+# Volume control and brightness bindings
+# An alternative is `wob`
+exec "avizo-service"
+bindsym XF86AudioRaiseVolume exec volumectl -u up
+bindsym XF86AudioLowerVolume exec volumectl -u down
+bindsym XF86AudioMute exec volumectl toggle-mute
+bindsym XF86AudioMicMute exec volumectl -m toggle-mute
+
+bindsym XF86MonBrightnessUp exec lightctl up
+bindsym XF86MonBrightnessDown exec lightctl down
+
+# Notification daemon
+exec swaync
+# Same binding as GNOME
+bindsym $mod+m exec swaync-client -t -sw
+
 #
 # Status Bar:
 #
@@ -219,5 +249,9 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+gaps inner 4
+gaps outer 0
+smart_gaps on
 
 include /etc/sway/config.d/*
