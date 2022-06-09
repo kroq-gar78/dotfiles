@@ -255,3 +255,32 @@ gaps outer 0
 smart_gaps on
 
 include /etc/sway/config.d/*
+
+assign [app_id="pulseeffects"] 1
+assign [class="discord"] 1
+assign [class="Signal"] 1
+
+# Looks like spotify is/was historically a problem for sway
+# See: https://github.com/swaywm/sway/issues/3793
+# This seems to work
+for_window [class="Spotify"] move container to workspace 1
+
+# TODOs
+# pulseeffects, discord, spotify placement
+# rename windows
+# ssh-agent
+# lock screen?
+# better waybar
+# switching between headphones/speakers & HDMI audio. automatically detect when earbuds plug in?
+# stacking?
+# tmux-like zoom with $mod+z?
+# add tmux splitting commands
+# autostart
+# halfqwerty layout!
+# automatically partition along longest axis??
+# power: suspend, battery warnings
+# screenshots
+# TODO: media play/pause/next
+# alt-tab, or equivalent
+# zoom pop-up windows, google "sway zoom floating windows" or the like. example: https://www.reddit.com/r/swaywm/comments/l9asbc/zoom_on_sway_what_settings_do_you_use/
+# screensharing: https://www.reddit.com/r/swaywm/comments/ry24ef/discord_zoom_screensharing/
