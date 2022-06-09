@@ -36,8 +36,8 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 scale 1.5
-output "Dell Inc. DELL S2721DGF B41QT83" resolution 2560x1440@119.998Hz
+#output eDP-1 scale 1.5
+#output "Dell Inc. DELL S2721DGF B41QT83" resolution 2560x1440@119.998Hz
 
 ### Idle configuration
 #
@@ -264,6 +264,15 @@ assign [class="Signal"] 1
 # See: https://github.com/swaywm/sway/issues/3793
 # This seems to work
 for_window [class="Spotify"] move container to workspace 1
+
+# Maybe there's a race condition? does it start too early or something?
+# External display is usually frozen at startup with the highest settings.
+# requires `DP-2 disable` `DP-2 enable`, and everything works.
+# TODO: refresh kanshi after Sway refresh? if display config doesn't get reset properly
+# IDK which one of these commands actually works lol. `exec` doesn't work on
+# reload I think
+exec kanshi
+#exec_always (pkill kanshi || 0); exec kanshi
 
 # TODOs
 # pulseeffects, discord, spotify placement
