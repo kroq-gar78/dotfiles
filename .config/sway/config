@@ -69,7 +69,13 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 # Automatically enable numlock (if the device has it)
-input * xkb_numlock enable
+input type:keyboard xkb_numlock enable
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
 
 # Don't change focus with the mouse (without clicking). Keeps the behavior of other DEs
 focus_follows_mouse no
@@ -95,6 +101,8 @@ focus_follows_mouse no
     floating_modifier $mod normal
 
     # Reload the configuration file
+    # NOTE: firefox seems to crash during a refresh
+    # https://bugzilla.mozilla.org/show_bug.cgi?id=1652820
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
@@ -231,9 +239,9 @@ bindsym XF86MonBrightnessDown exec lightctl down
 
 # Notification daemon
 exec swaync
-# Same binding as GNOME
-bindsym $mod+m exec swaync-client -t -sw
+bindsym $mod+n exec swaync-client -t -sw
 
+# TODO: more screenshot commands
 # Screenshot region
 bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t "image/png"
 # Manual lock. "$mod+l" (preferred) overlaps with movement bindings
@@ -245,18 +253,6 @@ bindsym $mod+Ctrl+l exec killall -USR1 swayidle
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-    #position top
-
-    ## When the status_command prints a new line to stdout, swaybar updates.
-    ## The default just shows the current date and time.
-    ##status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 1; done
-    #status_command while date +'%a, %b. %d  %I:%M %p'; do sleep 1; done
-
-    #colors {
-    #    statusline #ffffff
-    #    background #323232
-    #    inactive_workspace #32323200 #32323200 #5c5c5c
-    #}
 }
 
 gaps inner 4
@@ -287,7 +283,6 @@ exec kanshi
 # pulseeffects, discord, spotify placement
 # rename windows
 # ssh-agent
-# lock screen?
 # better waybar
 # switching between headphones/speakers & HDMI audio. automatically detect when earbuds plug in?
 # stacking?
