@@ -26,6 +26,9 @@ set $term foot
 
 set $menu "fuzzel --show-actions"
 
+# Clipboard manager: start at launch
+exec wl-paste -t text --watch clipman store
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -231,6 +234,11 @@ exec swaync
 # Same binding as GNOME
 bindsym $mod+m exec swaync-client -t -sw
 
+# Screenshot region
+bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t "image/png"
+# Manual lock. "$mod+l" (preferred) overlaps with movement bindings
+bindsym $mod+Ctrl+l exec killall -USR1 swayidle
+
 #
 # Status Bar:
 #
@@ -289,8 +297,13 @@ exec kanshi
 # halfqwerty layout!
 # automatically partition along longest axis??
 # power: suspend, battery warnings
+# udisk(ie?) for USB automount
 # screenshots
 # TODO: media play/pause/next
 # alt-tab, or equivalent
+# searching through windows. Maybe through rofi?
 # zoom pop-up windows, google "sway zoom floating windows" or the like. example: https://www.reddit.com/r/swaywm/comments/l9asbc/zoom_on_sway_what_settings_do_you_use/
 # screensharing: https://www.reddit.com/r/swaywm/comments/ry24ef/discord_zoom_screensharing/
+# polkit for graphical sudo??
+# dex for autostart applications
+# force dark theme for all applications
