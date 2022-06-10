@@ -27,7 +27,8 @@ set $term foot
 set $menu "fuzzel --show-actions"
 
 # Clipboard manager: start at launch
-exec wl-paste -t text --watch clipman store
+# https://wiki.archlinux.org/title/Sway#Clipboard
+exec wl-paste -t text --watch clipman store --no-persist
 
 ### Output configuration
 #
@@ -302,3 +303,4 @@ exec kanshi
 # polkit for graphical sudo??
 # dex for autostart applications
 # force dark theme for all applications
+# redshift equivalent
