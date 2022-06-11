@@ -15,6 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
+# TODO: open terminal in same directory as cwd of previous terminal?
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -42,6 +43,8 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 #output eDP-1 scale 1.5
 #output "Dell Inc. DELL S2721DGF B41QT83" resolution 2560x1440@119.998Hz
+set $display1 eDP-1
+set $display2 DP-2
 
 ### Idle configuration
 #
@@ -159,6 +162,16 @@ focus_follows_mouse no
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    workspace 1 output $display1 $display2
+    workspace 3 output $display1 $display2
+    workspace 5 output $display1 $display2
+    workspace 7 output $display1 $display2
+    workspace 9 output $display1 $display2
+    workspace 2 output $display2 $display1
+    workspace 4 output $display2 $display1
+    workspace 6 output $display2 $display1
+    workspace 8 output $display2 $display1
+    workspace 10 output $display2 $display1
 #
 # Layout stuff:
 #
@@ -293,6 +306,7 @@ exec kanshi
 # halfqwerty layout!
 # automatically partition along longest axis??
 # power: suspend, battery warnings
+# power menu options: https://github.com/NOOBDY/dotfiles/blob/master/sway/scripts/power-menu.sh and https://github.com/luispabon/sway-dotfiles/blob/master/scripts/wofi-power.sh
 # udisk(ie?) for USB automount
 # screenshots
 # TODO: media play/pause/next
@@ -304,3 +318,6 @@ exec kanshi
 # dex for autostart applications
 # force dark theme for all applications
 # redshift equivalent
+# waybar service?? so we can have different waybar configs for different monitor setups, or something https://github.com/Madic-/Sway-DE/blob/master/config/systemd/user/waybar.service.j2
+# assign workspaces to different monitors (e.g. 1&2 on small screen only, all other workspaces on main monitor?)
+# binding to highlight the active pane (a la tmux)? or maybe better theming for the active window
