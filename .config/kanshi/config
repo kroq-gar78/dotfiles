@@ -4,8 +4,10 @@
 profile home {
     output eDP-1 enable scale 1.25
     output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 1805,0
+    # For some reason, this monitor's screen is frozen at activation. Disable & enable seems to reliably fix this.
+    exec sleep 0.5 && swaymsg output DP-2 disable && swaymsg output DP-2 enable
 }
 profile laptop {
     output eDP-1 enable scale 1
-    # TODO: change idle timer to something shorter
+    # TODO: change idle timer to something shorter b/c mobile
 }
