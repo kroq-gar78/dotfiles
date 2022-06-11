@@ -4,7 +4,8 @@
 profile home {
     output eDP-1 enable scale 1.25
     output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 1805,0
-    # For some reason, this monitor's screen is frozen at activation. Disable & enable seems to reliably fix this.
+    # For some reason, this monitor's screen is frozen at activation. Disable & enable seems to sometimes fix this.
+    # Other times, it running the command manually (i.e. outside of kanshi) seems to work
     exec sleep 0.5 && swaymsg output DP-2 disable && swaymsg output DP-2 enable
 }
 profile laptop {
