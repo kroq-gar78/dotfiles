@@ -167,16 +167,24 @@ focus_follows_mouse no
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Assign odd workspaces to the left display, and evens to the right display
     workspace 1 output $display1 $display2
     workspace 3 output $display1 $display2
     workspace 5 output $display1 $display2
     workspace 7 output $display1 $display2
     workspace 9 output $display1 $display2
-    workspace 2 output $display2 $display1
-    workspace 4 output $display2 $display1
-    workspace 6 output $display2 $display1
-    workspace 8 output $display2 $display1
-    workspace 10 output $display2 $display1
+    workspace 2 output $display2 DP-1 DP-3 DP-4 $display1
+    workspace 4 output $display2 DP-1 DP-3 DP-4 $display1
+    workspace 6 output $display2 DP-1 DP-3 DP-4 $display1
+    workspace 8 output $display2 DP-1 DP-3 DP-4 $display1
+    workspace 10 output $display2 DP-1 DP-3 DP-4 $display1
+
+    # Switching to the active workspace will instead go to the previous workspace
+    workspace_auto_back_and_forth yes
+    
+    # Make all workspaces tabbed by default
+    workspace_layout tabbed
 #
 # Layout stuff:
 #
