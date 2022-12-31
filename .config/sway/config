@@ -55,7 +55,7 @@ set $display2 DP-2
 #
 exec swayidle -w \
          timeout 600 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 610 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -97,6 +97,7 @@ focus_follows_mouse no
 
     # Kill focused window
     bindsym $mod+Shift+x kill
+    bindsym Alt+F4 kill # old habits die hard :)
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -111,7 +112,7 @@ focus_follows_mouse no
     # Reload the configuration file
     # NOTE: firefox seems to crash during a refresh
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1652820
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -191,7 +192,7 @@ focus_follows_mouse no
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+z fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -221,16 +222,16 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 40px
+    bindsym $down resize grow height 40px
+    bindsym $up resize shrink height 40px
+    bindsym $right resize grow width 40px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 40px
+    bindsym Down resize grow height 40px
+    bindsym Up resize shrink height 40px
+    bindsym Right resize grow width 40px
 
     # Return to default mode
     bindsym Return mode "default"
