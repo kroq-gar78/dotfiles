@@ -302,6 +302,15 @@ assign [class="Signal"] 1
 # This seems to work
 for_window [class="Spotify"] move container to workspace 1
 
+# Note edit windows should float
+# TODO: maek sure this works with other Okular windows as well
+for_window [title="^New.*Note.*Okular$" app_id="org.kde.okular"] floating enable
+
+# title="!(^Zoom Meeting$)"
+# TODO: make everything EXCEPT the "Zoom Meeting" window float
+# TODO: inhibit idle when in zoom meeting
+for_window [app_id="^zoom$"] floating enable
+
 # Maybe there's a race condition? does it start too early or something?
 # External display is usually frozen at startup with the highest settings.
 # requires `DP-2 disable` `DP-2 enable`, and everything works.
@@ -311,14 +320,20 @@ for_window [class="Spotify"] move container to workspace 1
 exec kanshi
 #exec_always (pkill kanshi || 0); exec kanshi
 
+# Inhibit swayidle's idle timer when focused on a steam game
+# Source: https://github.com/swaywm/swayidle/issues/5#issuecomment-670779101=
+for_window [class="steam_app*"] inhibit_idle focus
+
+# forgot what this was needed for :'(
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 # TODOs
-# pulseeffects, discord, spotify placement
+# pulseeffects, discord, spotify placement (split/tab workspace automatically)
 # rename windows
 # ssh-agent
 # better waybar
 # switching between headphones/speakers & HDMI audio. automatically detect when earbuds plug in?
 # stacking?
-# tmux-like zoom with $mod+z?
 # add tmux splitting commands
 # autostart
 # halfqwerty layout!
@@ -339,3 +354,9 @@ exec kanshi
 # waybar service?? so we can have different waybar configs for different monitor setups, or something https://github.com/Madic-/Sway-DE/blob/master/config/systemd/user/waybar.service.j2
 # assign workspaces to different monitors (e.g. 1&2 on small screen only, all other workspaces on main monitor?)
 # binding to highlight the active pane (a la tmux)? or maybe better theming for the active window
+# vim-like marks for jumping (see: https://aur.archlinux.org/packages/sway-marker-git)
+# tmux-like rename container binding?
+# Super+Alt+arrow = move to workspace; maybe up/down can take to the previous workspace
+# waybar: show scratchpad status
+
+exec swaynag -t warning -m 'Start desktop programs?' -z 'Yes, start programs' "(flatpak run com.discordapp.Discord & disown) && (pulseeffects & disown) && ($term btop -T btop & disown) && (signal-desktop & disown)"
