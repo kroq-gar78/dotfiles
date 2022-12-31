@@ -27,6 +27,7 @@
  * vim: print the JSON key path (https://github.com/mogelbrod/vim-jsonpath)
  * ipython: import numpy & others by default
  * tmux: highlight last pane (so you know where `;` will take you)
+ * vim: set filetype=jsonc for `.config/waybar/config` (look here for hints? https://github.com/jamespeapen/swayconfig.vim )
 
 ## Bugs
  * my vimrc doesn't like function return type annotations to be strings. This happens (in Hugging Face transformers) when a class's method has a return type of itself. Argument annotations are fine (roughly checked). (Maybe the bug only happens inside class methods?)
