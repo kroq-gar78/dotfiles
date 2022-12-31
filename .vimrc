@@ -181,3 +181,6 @@ au BufRead,BufNewFile *.py3 set filetype=python
 
 " recognize custom SSH config file(s)
 au BufRead,BufNewFile */.ssh/config_hosts set filetype=sshconfig
+
+" Recognize sway-related files
+au BufRead,BufNewFile */waybar/*config set filetype=jsonc
