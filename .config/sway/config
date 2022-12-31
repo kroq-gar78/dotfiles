@@ -343,7 +343,7 @@ for_window [app_id="^zoom$"] floating enable
 # TODO: refresh kanshi after Sway refresh? if display config doesn't get reset properly
 # IDK which one of these commands actually works lol. `exec` doesn't work on
 # reload I think
-exec kanshi
+#exec kanshi
 #exec_always (pkill kanshi || 0); exec kanshi
 
 # Inhibit swayidle's idle timer when focused on a steam game
@@ -352,6 +352,9 @@ for_window [class="steam_app*"] inhibit_idle focus
 
 # forgot what this was needed for :'(
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Start daemons via systemctl
+exec_always "system_ctl --user import-environment; systemctl --user start sway-session.target"
 
 # TODOs
 # pulseeffects, discord, spotify placement (split/tab workspace automatically)
