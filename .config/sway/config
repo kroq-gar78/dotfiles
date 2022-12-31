@@ -182,9 +182,35 @@ focus_follows_mouse no
 
     # Switching to the active workspace will instead go to the previous workspace
     workspace_auto_back_and_forth yes
-    
+
     # Make all workspaces tabbed by default
     workspace_layout tabbed
+
+    # Move between workspaces
+    bindsym $mod+Alt+$left workspace prev
+    bindsym $mod+Alt+$down workspace prev_on_output
+    bindsym $mod+Alt+$up workspace next_on_output
+    bindsym $mod+Alt+$right workspace next
+    # ; like tmux
+    bindsym $mod+Alt+Semicolon workspace back_and_forth 
+    # TODO: Shift+Alt+Semicolon for moving window to last workspace
+    # Or use $mod+[up|down|left|right] to move on the same display
+    bindsym $mod+Alt+Left workspace prev
+    bindsym $mod+Alt+Down workspace prev_on_output
+    bindsym $mod+Alt+Up workspace next_on_output
+    bindsym $mod+Alt+Right workspace next
+
+    # Move windows to workspaces using similar bindings
+    bindsym $mod+Alt+Shift+$left move container to workspace prev
+    bindsym $mod+Alt+Shift+$down move container to workspace prev_on_output
+    bindsym $mod+Alt+Shift+$up move container to workspace next_on_output
+    bindsym $mod+Alt+Shift+$right move container to workspace next
+    bindsym $mod+Alt+Shift+Semicolon move container to workspace back_and_forth 
+    bindsym $mod+Alt+Shift+Left move container to workspace prev
+    bindsym $mod+Alt+Shift+Down move container to workspace prev_on_output
+    bindsym $mod+Alt+Shift+Up move container to workspace next_on_output
+    bindsym $mod+Alt+Shift+Right move container to workspace next
+
 #
 # Layout stuff:
 #
