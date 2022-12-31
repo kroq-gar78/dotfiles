@@ -6,7 +6,7 @@
         "use-custom-color": "false",
         "fill": "true",
         "show-bar-border": "true",
-        "sampling-freq": "10",
+        "sampling-freq": "15",
         "line-width": "2",
         "type": "Bars",
         "color": [
@@ -121,7 +121,7 @@
             "split-channels": "false",
             "left": {
                 "band0": {
-                    "type": "Bell",
+                    "type": "Hi-pass",
                     "mode": "RLC (BT)",
                     "slope": "x1",
                     "solo": "false",
@@ -136,7 +136,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "-17.652173913043477",
+                    "gain": "-20.155925155925154",
                     "frequency": "34.077998595916341",
                     "q": "2.9240217964026809"
                 },
@@ -146,7 +146,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "-8.8260869565217419",
+                    "gain": "-12.879417879417879",
                     "frequency": "48.136452462333338",
                     "q": "2.9240217964026809"
                 },
@@ -156,7 +156,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-7.2122524752475208",
                     "frequency": "67.994546367994275",
                     "q": "2.9240217964026796"
                 },
@@ -166,7 +166,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-4.093440594059409",
                     "frequency": "96.044849574384656",
                     "q": "2.9240217964026805"
                 },
@@ -176,7 +176,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-1.6027227722772253",
                     "frequency": "135.66695599146308",
                     "q": "2.9240217964026809"
                 },
@@ -323,7 +323,7 @@
             },
             "right": {
                 "band0": {
-                    "type": "Bell",
+                    "type": "Hi-pass",
                     "mode": "RLC (BT)",
                     "slope": "x1",
                     "solo": "false",
@@ -338,7 +338,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "-17.652173913043477",
+                    "gain": "-20.155925155925154",
                     "frequency": "34.077998595916341",
                     "q": "2.9240217964026809"
                 },
@@ -348,7 +348,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "-8.8260869565217419",
+                    "gain": "-12.879417879417879",
                     "frequency": "48.136452462333338",
                     "q": "2.9240217964026809"
                 },
@@ -358,7 +358,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-7.2122524752475208",
                     "frequency": "67.994546367994275",
                     "q": "2.9240217964026796"
                 },
@@ -368,7 +368,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-4.093440594059409",
                     "frequency": "96.044849574384656",
                     "q": "2.9240217964026805"
                 },
@@ -378,7 +378,7 @@
                     "slope": "x1",
                     "solo": "false",
                     "mute": "false",
-                    "gain": "0",
+                    "gain": "-1.6027227722772253",
                     "frequency": "135.66695599146308",
                     "q": "2.9240217964026809"
                 },
@@ -584,8 +584,7 @@
             "semitones": "0",
             "octaves": "0",
             "crispness": "3",
-            "formant-preserving": "false",
-            "faster": "false"
+            "formant-preserving": "false"
         },
         "reverb": {
             "state": "false",
