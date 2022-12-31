@@ -264,6 +264,11 @@ bindsym XF86AudioMicMute exec volumectl -m toggle-mute
 bindsym XF86MonBrightnessUp exec lightctl up
 bindsym XF86MonBrightnessDown exec lightctl down
 
+# Media control
+bindsym XF86AudioPrev playerctl previous
+bindsym XF86AudioNext playerctl next
+bindsym XF86AudioPlay playerctl play-pause
+
 # Notification daemon
 exec swaync
 bindsym $mod+n exec swaync-client -t -sw
