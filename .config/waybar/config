@@ -3,11 +3,12 @@
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 21, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
+    //  "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "memory", "network#vpn", "network", "battery", "clock", "tray", "custom/powermenu"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "memory", /*"gamemode",*/ "network#vpn", "network", "battery", "clock", "tray", "custom/powermenu"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": false,
@@ -26,10 +27,13 @@
              "focused": "",
              "default": ""
          }
-         // TOOD: have option showing which workspaces have fullscreen, and which have audio playing (audio seems a lot harder)
+         // TODO: have option showing which workspaces have fullscreen, and which have audio playing (audio seems a lot harder)
      },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "max-length": 100
     },
 
     "tray": {
@@ -38,6 +42,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        // TODO: add date/time to tooltip
           "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
        // "format-alt": "{:%Y-%m-%d}"
 	  "interval": 1,
@@ -78,7 +83,7 @@
        // "format": "{}% "
           "format": "{used:0.1f}G/{total:0.1f}G ",
           "interval": 5,
-          "on-click": "foot -e btop"
+          "on-click": "foot -T btop btop"
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
@@ -99,12 +104,35 @@
         },
         "on-click": "pavucontrol"
     },
+
+    // This might cause some instability at startup 
+    "gamemode": {
+	"format": "{glyph}",
+	"format-alt": "{glyph}  {count}",
+	"glyph": "",
+	"hide-not-running": true,
+	"use-icon": true,
+	"icon-name": "input-gaming-symbolic",
+	"icon-spacing": 0, // bug in waybar: setting adds space even if only showing icon
+	"icon-size": 20,
+	"tooltip": true,
+	"tooltip-format": "Games running: {count}"
+    },
+
+    "idle_inhibitor": {
+	"format": "{icon}",
+	"format-icons": {
+	    "activated": "",
+	    "deactivated": ""
+	}
+    },
+
     "custom/powermenu": {
 	"format": "<span font='Font Awesome 5 Free 9'>{icon}</span>{}",
 	"format-icons": [""],
 	"interval": 3600,
 	"escape": true,
-	"on-click": "wlogout -p layer-shell &>/dev/null"
+	"on-click": "~/.config/sway/scripts/wofi-power.sh"
     },
      "custom/arrow1": {
         "format": "",
