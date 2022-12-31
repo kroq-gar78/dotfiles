@@ -31,6 +31,9 @@ set $menu "fuzzel --show-actions"
 # https://wiki.archlinux.org/title/Sway#Clipboard
 exec wl-paste -t text --watch clipman store --no-persist
 
+# Allow GUI programs to request sudo access
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -75,13 +78,14 @@ exec swayidle -w \
 # Automatically enable numlock (if the device has it)
 input type:keyboard xkb_numlock enable
 input type:touchpad {
+    # disable while typing
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
 }
 
-# Don't change focus with the mouse (without clicking). Keeps the behavior of other DEs
+# Don't change focus with the mouse (without clicking). Keeps the behavior of other DEs like GNOME
 focus_follows_mouse no
 
 ### Key bindings
@@ -204,7 +208,7 @@ focus_follows_mouse no
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+minus move scratchpad, floating disable
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
