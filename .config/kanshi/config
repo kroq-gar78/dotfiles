@@ -13,7 +13,7 @@ profile home_3_horiz {
     # three-display home setup. Laptop display is under the left monitor, which is *horizontal*.
     output eDP-1 enable scale 1.25 position 0,1440
     # specify "transform normal" to undo any previous rotation
-    output "Unknown HP X27q 6CM12407LR" enable mode 2560x1440@119.998Hz position 0,0 scale 1 transform normal
+    output "HP Inc. HP X27q 6CM12407LR" enable mode 2560x1440@119.998Hz position 0,0 scale 1 transform normal
     output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 2560,0 scale 1
     #output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 3725,0 scale 1
     # For some reason, this monitor's screen is frozen at activation. Disable & enable seems to sometimes fix this.
@@ -24,8 +24,8 @@ profile home_3_horiz {
 #profile home_3_vert {
 #    # three-display home setup. Laptop display is under the left monitor, which is *vertical*.
 #    output eDP-1 enable scale 1.25 position 0,2560
-#    #output "Unknown HP X27q 6CM12407LR" enable mode 1920x1080@60Hz position 1805,0 scale 1 transform 90 # old, lower bandwidth display adapter
-#    output "Unknown HP X27q 6CM12407LR" enable mode 2560x1440@119.998Hz position 364,0 scale 1 transform 90
+#    #output "HP Inc. HP X27q 6CM12407LR" enable mode 1920x1080@60Hz position 1805,0 scale 1 transform 90 # old, lower bandwidth display adapter
+#    output "HP Inc. HP X27q 6CM12407LR" enable mode 2560x1440@119.998Hz position 364,0 scale 1 transform 90
 #    output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 1804,446 scale 1
 #    # For some reason, this monitor's screen is frozen at activation. Disable & enable seems to sometimes fix this.
 #    # Other times, it running the command manually (i.e. outside of kanshi) seems to work
