@@ -49,6 +49,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 set $display1 eDP-1
 set $display2 DP-2
 
+# Enable adaptive sync for all supported displays
+output * adaptive_sync on
+
 ### Idle configuration
 #
 # Example configuration:
