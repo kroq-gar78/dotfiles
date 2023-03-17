@@ -11,7 +11,7 @@ profile home {
 
 profile home_3_horiz {
     # three-display home setup. Laptop display is under the left monitor, which is *horizontal*.
-    output eDP-1 enable scale 1.25 position 0,1440
+    output eDP-1 enable scale 1.25 position 478,1440
     # specify "transform normal" to undo any previous rotation
     output "HP Inc. HP X27q 6CM12407LR" enable mode 2560x1440@119.998Hz position 0,0 scale 1 transform normal
     output "Dell Inc. DELL S2721DGF B41QT83" enable mode 2560x1440@119.998Hz position 2560,0 scale 1
@@ -32,9 +32,13 @@ profile home_3_horiz {
 #    exec sleep 0.5 && swaymsg output DP-2 disable && swaymsg output DP-2 enable
 #}
 
-profile lab {
+profile lab_old {
     output eDP-1 enable scale 1.25 position 0,0
     output "Dell Inc. DELL P2715Q X24K17AECT1L" enable mode 3840x2160 position 1805,0 scale 1.5
+}
+profile lab {
+    output eDP-1 enable scale 1.25 position 0,0
+    output "Dell Inc. DELL U2718Q 4K8X79162VWL" enable mode 3840x2160 position 1805,0 scale 1.5
 }
 
 profile home_acer {
@@ -42,9 +46,14 @@ profile home_acer {
     output "Acer Technologies G257HL T1XAA0012420" enable mode 1920x1080 position 1804,0
 }
 
+# Defaults for single- or dual-monitor setups
 profile {
     output eDP-1 enable scale 1.25 position 0,0
     output DP-2 enable position 1805,0
+}
+profile {
+    output eDP-1 enable scale 1.25 position 0,0
+    output DP-1 enable position 1805,0
 }
 profile laptop {
     output eDP-1 enable scale 1
