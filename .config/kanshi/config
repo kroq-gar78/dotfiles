@@ -46,6 +46,16 @@ profile home_acer {
     output "Acer Technologies G257HL T1XAA0012420" enable mode 1920x1080 position 1804,0
 }
 
+profile other_desk {
+    output eDP-1 enable scale 1.25 position 0,0
+    output "Dell Inc. DELL U2412M M2GCR2AL212L" enable mode 1920x1080 position 1804,0 scale 1.0
+}
+
+profile {
+    output eDP-1 enable scale 1.25 position 0,0
+    output "UTV MONITOR 0x00000001" enable mode 3840x2160@60Hz position 1804,0 scale 1.0
+}
+
 # Defaults for single- or dual-monitor setups
 profile {
     output eDP-1 enable scale 1.25 position 0,0
