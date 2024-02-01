@@ -1,3 +1,4 @@
+import re
 try:
     import numpy as np
     #import scipy as sp # might noticeably increase REPL load time
