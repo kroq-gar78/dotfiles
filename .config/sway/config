@@ -327,12 +327,13 @@ smart_gaps on
 include /etc/sway/config.d/*
 
 assign [app_id="pulseeffects"] 1
+assign [app_id="com.github.wwmm.easyeffects"] 1
 assign [class="discord"] 1
 assign [class="Signal"] 1
 
 # Looks like spotify is/was historically a problem for sway
 # See: https://github.com/swaywm/sway/issues/3793
-# This seems to work
+# This DOES NOT work! currently opens on the opposite display
 for_window [class="Spotify"] move container to workspace 1
 
 # Note edit windows should float
@@ -407,4 +408,4 @@ bindsym Mod1+Tab exec swayr switch-to-urgent-or-lru-window
 bindsym $mod+Delete exec swayr quit-window
 
 # Ask to start programs at login
-exec swaynag -t warning -m 'Start desktop programs?' -z 'Yes, start programs' "(flatpak run com.discordapp.Discord & disown) && (pulseeffects & disown) && ($term btop -T btop & disown) && (signal-desktop & disown)"
+exec swaynag -t warning -m 'Start desktop programs?' -z 'Yes, start programs' "(flatpak run com.discordapp.Discord & disown) && (easyeffects & disown) && ($term btop -T btop & disown) && (signal-desktop & disown)"
