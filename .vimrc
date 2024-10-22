@@ -46,7 +46,11 @@ call plug#begin()
     " If we're on an old vim, use an old commit of YCM
     if v:version < 801
         Plug 'Valloric/YouCompleteMe' , { 'branch': 'legacy-vim' }
-    else " otherwise use master
+    elseif v:version < 802 " Ubuntu 20.04
+        Plug 'Valloric/YouCompleteMe' , { 'commit': 'd2abd1594f228de79a05257fc5d4fca5c9a7ead3' }
+    elseif v:version < 901 " Ubuntu 22.04
+        Plug 'Valloric/YouCompleteMe' , { 'commit': 'b6e8c64d96b02d60b3751d6a51af7dc958054f8f' }
+    else
         Plug 'Valloric/YouCompleteMe'
     endif
 
