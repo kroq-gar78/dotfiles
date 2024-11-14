@@ -102,7 +102,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
     },
 
     // This might cause some instability at startup 
@@ -128,7 +129,7 @@
     },
 
     "custom/powermenu": {
-	"format": "<span font='Font Awesome 5 Free 9'>{icon}</span>{}",
+	"format": "{}<span font='Font Awesome 5 Free 9'>{icon}</span>",
 	"format-icons": [""],
 	"interval": 3600,
 	"escape": true,
