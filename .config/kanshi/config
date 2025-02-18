@@ -43,12 +43,17 @@ profile lab {
 
 profile home_acer {
     output eDP-1 enable scale 1.25 position 0,0
-    output "Acer Technologies G257HL T1XAA0012420" enable mode 1920x1080 position 1804,0
+    output "Acer Technologies G257HL T1XAA0012420" enable mode 1920x1080 position 1804,0 scale 1.0
+}
+
+profile home_msi {
+    output eDP-1 enable scale 1.25 position 0,0
+    output "Microstep G274QPF E2 CC2HJ64502676" enable mode 2560x1440@144Hz position 1804,0 scale 1.0
 }
 
 profile other_desk {
     output eDP-1 enable scale 1.25 position 0,0
-    output "Dell Inc. DELL U2412M M2GCR2AL212L" enable mode 1920x1080 position 1804,0 scale 1.0
+    output "Dell Inc. DELL U2412M M2GCR2AL212L" enable mode 1920x1200 position 1804,0 scale 1.0
 }
 
 profile {
@@ -56,12 +61,23 @@ profile {
     output "UTV MONITOR 0x00000001" enable mode 3840x2160@60Hz position 1804,0 scale 1.0
 }
 
+profile ny {
+    output "Dell Inc. DELL U2720Q B9KT5H3" enable mode 3840x2160 position 0,535 scale 1.5
+    output "Dell Inc. DELL U2720Q 8HLS6H3" enable mode 3840x2160 position 2560,0 scale 1.5
+    output eDP-1 enable scale 1.25 position 4000,1221
+}
+
+profile sea {
+    output "Acer Technologies VG281K 0x24314743" enable mode 3840x2160 position 0,0 scale 1.5
+    output eDP-1 enable scale 1.25 position 2560,0
+}
+
 # Defaults for single- or dual-monitor setups
-profile {
+profile default-single-DP-2 {
     output eDP-1 enable scale 1.25 position 0,0
     output DP-2 enable position 1805,0
 }
-profile {
+profile default-single-DP-1 {
     output eDP-1 enable scale 1.25 position 0,0
     output DP-1 enable position 1805,0
 }
