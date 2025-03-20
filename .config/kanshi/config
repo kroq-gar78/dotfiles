@@ -72,6 +72,13 @@ profile sea {
     output eDP-1 enable scale 1.25 position 2560,0
 }
 
+profile office_weird {
+    # Two external displays, with laptop below in the center
+    output "Samsung Electric Company C27F390 H4LT402537" enable mode 1920x1080 position 0,0 scale 1
+    output "Samsung Electric Company C27F390 H4LT402555" enable mode 1920x1080 position 1920,0 scale 1
+    output eDP-1 enable scale 1.25 position 1029,1080
+}
+
 # Defaults for single- or dual-monitor setups
 profile default-single-DP-2 {
     output eDP-1 enable scale 1.25 position 0,0
