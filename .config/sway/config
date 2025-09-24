@@ -290,10 +290,13 @@ bindsym $mod+r mode "resize"
 # Volume control and brightness bindings
 # An alternative is `wob`
 exec "avizo-service"
-bindsym XF86AudioRaiseVolume exec volumectl -u up
-bindsym XF86AudioLowerVolume exec volumectl -u down
-bindsym XF86AudioMute exec volumectl toggle-mute
-bindsym XF86AudioMicMute exec volumectl -m toggle-mute
+#bindsym XF86AudioRaiseVolume exec volumectl -u up
+#bindsym XF86AudioLowerVolume exec volumectl -u down
+#bindsym XF86AudioMute exec volumectl toggle-mute
+bindsym XF86AudioRaiseVolume exec volumectl -D $(pamixer --list-sinks | grep -v easyeffects | grep "Running" | grep -m1 -o '^[0-9]\+') -u up
+bindsym XF86AudioLowerVolume exec volumectl -D $(pamixer --list-sinks | grep -v easyeffects | grep "Running" | grep -m1 -o '^[0-9]\+') -u down
+bindsym XF86AudioMute exec volumectl -D $(pamixer --list-sinks | grep -v easyeffects | grep "Running" | grep -m1 -o '^[0-9]\+') toggle-mute
+bindsym XF86AudioMicMute exec volumectl -D $(pamixer --list-sinks | grep -v easyeffects | grep "Running" | grep -m1 -o '^[0-9]\+') -m toggle-mute
 
 bindsym XF86MonBrightnessUp exec lightctl up
 bindsym XF86MonBrightnessDown exec lightctl down
