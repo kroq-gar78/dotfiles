@@ -82,6 +82,7 @@ exec swayidle -w \
 input type:keyboard {
     xkb_numlock enable
     #xkb_options caps:swapescape
+    # Escape and Caps Lock are both mapped to Escape
     xkb_options caps:escape
 }
 input type:touchpad {
