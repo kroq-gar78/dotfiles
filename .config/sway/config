@@ -412,4 +412,4 @@ bindsym Mod1+Tab exec swayr switch-to-urgent-or-lru-window
 bindsym $mod+Delete exec swayr quit-window
 
 # Ask to start programs at login
-exec swaynag -t warning -m 'Start desktop programs?' -z 'Yes, start programs' "(flatpak run com.discordapp.Discord & disown) && (easyeffects & disown) && ($term btop -T btop & disown) && (signal-desktop & disown)"
+exec swaynag -t warning -m 'Start desktop programs?' -z 'Yes, start programs' "(flatpak run com.discordapp.Discord & disown) && (easyeffects & disown) && ($term btop -T btop & disown) && (signal-desktop --password-store=gnome-libsecret & disown)"
