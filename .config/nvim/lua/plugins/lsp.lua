@@ -3,8 +3,8 @@ return {
 		'neovim/nvim-lspconfig',
 		lazy = false,
 		config = function()
-			local lspconfig = require('lspconfig')
-			lspconfig.pyright.setup {
+			vim.lsp.enable {
+				"pyright",
 			}
 
 			vim.api.nvim_create_autocmd('LspAttach', {
