@@ -66,6 +66,11 @@ vim.keymap.set(
 	}
 )
 
+-- Replace selected text with the _ buffer in visual mode
+-- from http://stackoverflow.com/a/920139
+---[[
+vim.keymap.set('v', 'r', '"_dP')
+
 vim.g.python_indent = {
 	open_paren = 'shiftwidth()',
 	continue = 'shiftwidth()',
