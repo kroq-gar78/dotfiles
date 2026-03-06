@@ -1,0 +1,13 @@
+{
+  "LanguageServerManager": {
+    "language_servers": {
+      "pyright-uv": {
+        "argv": ["pyright-langserver", "--stdio"],
+        "languages": ["python"],
+        "version": 2,
+        "mime_types": ["text/python", "text/x-ipython"],
+        "display_name": "pyright (uv)"
+      }
+    }
+  }
+}
