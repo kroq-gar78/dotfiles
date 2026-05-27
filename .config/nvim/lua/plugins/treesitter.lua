@@ -8,7 +8,7 @@ return {
 			"windwp/nvim-ts-autotag",
 		},
 		config = function(self, opts)
-			local configs = require("nvim-treesitter.configs")
+			local configs = require("nvim-treesitter.config")
 			configs.setup(opts)
 
 			vim.opt.foldmethod = "expr"
